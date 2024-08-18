@@ -7,7 +7,7 @@ function showData(dataArray) {
     // El for itera sobre los elementos del array
     for (const item of dataArray) {
       // En la siguiente línea se utilizan "backticks" para armar el String. Más info => https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Template_literals
-      probandoAutos.innerHTML += `<p> Modelo: ${item.name} <br> Descripción: ${item.description} <br> Precio: ${item.currency}${item.cost} <br> Cantidad de Vendidos: ${item.soldCount} <br> ${item.image}</p>`; // Se concatena cada párrafo de la manera que queremos mostrarlo al innerHTML del contenedor
+      probandoAutos.innerHTML += `<p> Modelo: ${item.name} <br> Descripción: ${item.description} <br> Precio: ${item.currency}${item.cost} <br> Cantidad de Vendidos: ${item.soldCount} <br>  <img src=${item.image} alt=${item.name}/></p>`; // Se concatena cada párrafo de la manera que queremos mostrarlo al innerHTML del contenedor
     }
   }
   
@@ -18,9 +18,9 @@ fetch(DATACARS)
   return res.ok? res.json(): Promise.reject(res); //esto hace que: si la respuesta es ok manda un rest.json y sino rechaza la promesa
 })
 .then(data => {
-  // Acceso al array students dentro de data 
+  // Acceso al array products dentro de data 
   const products = data.products;
-  showData(products); // Paso students array para la funcion showData
+  showData(products); // Paso array para la funcion showData
 })
 .catch((err) => {
   console.log(err);
